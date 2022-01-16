@@ -29,4 +29,11 @@ module.exports = {
       template: path.join(__dirname, "src", "index.html"),
     }),
   ],
+  resolve: {
+    alias: {
+      Helpers: path.resolve(__dirname, "src/helpers/"),
+      GeneralComponents: path.resolve(__dirname, "src/general_components/"),
+      Views: path.resolve(__dirname, "src/views/"),
+    },
+  },
 }
