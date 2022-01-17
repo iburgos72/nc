@@ -1,0 +1,32 @@
+@import './colors.scss';
+
+.title {
+  font-size: 35px;
+  font-weight: 300;
+  color: var(--font-gray);
+}
+
+.subtitle {
+  font-size: 35px;
+  font-weight: 200;
+  color: var(--dark-gray);
+}
+
+.link-white-button {
+  background-color: var(--white);
+  color: var(--font-gray);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid var(--dark-gray);
+  -webkit-transition: background-color 0.2s ease-out;
+  -moz-transition: background-color 0.2s ease-out;
+  -o-transition: background-color 0.2s ease-out;
+  transition: background-color 0.2s ease-out;
+
+  &:hover {
+    background-color: var(--light-gray);
+    color: var(--font-gray);
+    text-decoration: none;
+  }
+}
