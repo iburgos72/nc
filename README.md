@@ -32,3 +32,6 @@ See the page [here](https://iburgos72.github.io/nuvocargo/)
 ## Comments
 
 - It may be strange that the `Views` directory has only one folder, but it was structured that way so that if at any time you want to make views that are not related to delivery, you can create multiple bundles with webpack
+- In my previous projects I have used tools like bootstrap, material ui and create react app, for this test I wanted to do it from scratch (and I regret it a bit because that made it more complicated)
+
+Note: at the end I stole some of the css from bootstrap 🙃
