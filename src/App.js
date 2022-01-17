@@ -40,7 +40,7 @@ const App = () => {
         <Route path="/shipment/:id"  element={<DetailDeliveryView />}/>
         <Route path="*" element={
             <main style={{ padding: "1rem" }}>
-              <p>There's nothing here!</p>
+              <p>There is nothing here</p>
             </main>
           }
         />

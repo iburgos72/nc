@@ -5,14 +5,15 @@ import React, { useState } from 'react';
 import Title from 'GeneralComponents/Title';
 
 const Form = (props) => {
+  const platforms = ["Alpha", "Beta", "Gamma"]
+  const drones = ["DJI-001Q", "DJI-002Q", "DJI-003Q", "DJI-004Q"]
+
   const [id, setId] = useState("");
   const [errId, setErrId] = useState("");
   const [technician, setTechnician] = useState("");
   const [errTechnician, setErrTechnician] = useState("");
-  const [platform, setPlatform] = useState("");
-  const [errPlatform, setErrPlatform] = useState("");
-  const [drone, setDrone] = useState("");
-  const [errDrone, setErrDrone] = useState("");
+  const [platform, setPlatform] = useState(platforms[0]);
+  const [drone, setDrone] = useState(drones[0]);
 
   const validateData = () => {
     let errors = false;
@@ -46,13 +47,14 @@ const Form = (props) => {
     }
 
     if(errors) return;
-    console.log('0000000000000000',props);
+
     props.doneFunc({
         id,
         technician,
         platform,
         drone,
     })
+    props.cancelFunc()
   }
 
   return (
@@ -102,36 +104,34 @@ const Form = (props) => {
               <span className="input-description">
                 Platform
               </span>
-              {
-                errPlatform !== "" &&
-                <span className="input-error">
-                  {errPlatform}
-                </span>
-              }
             </div>
-            <input
+            <select
               name="platform"
-              value={platform}
               onChange={(e) => setPlatform(e.target.value)}
-            />
+            >
+              {
+                platforms.map(el => (
+                  <option value={el}>{el}</option>
+                ))
+              }
+            </select>
           </div>
           <div className="flex column margin-vertical-10">
             <div className="flex row justify-content-between">
               <span className="input-description">
                 Drone
               </span>
-              {
-                errDrone !== "" &&
-                <span className="input-error">
-                  {errDrone}
-                </span>
-              }
             </div>
-            <input
+            <select
               name="drone"
-              value={drone}
               onChange={(e) => setDrone(e.target.value)}
-            />
+            >
+              {
+                drones.map(el => (
+                  <option value={el}>{el}</option>
+                ))
+              }
+            </select>
           </div>
         </div>
       </div>
