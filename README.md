@@ -12,6 +12,10 @@ $ npm run dev
 
 Open your [localhost](http://localhost:8080/)
 
+## Github pages
+
+See the page [here](https://iburgos72.github.io/nuvocargo/)
+
 ## TO-DO
 
 - Move the logic to read and write in the local storage to the helpers file
