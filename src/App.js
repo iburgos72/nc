@@ -1,7 +1,7 @@
 // vendor
 import React, { useEffect, useState } from 'react';
 import {
-  BrowserRouter,
+  HashRouter,
   Routes,
   Route
 } from 'react-router-dom';
@@ -34,10 +34,10 @@ const App = () => {
   }, [])
 
   return (
-    <BrowserRouter>
+    <HashRouter basename="/">
       <Routes>
-        <Route path="/nuvocargo"             element={<MainDeliveryView data={dataApp}/>}/>
-        <Route path="/nuvocargo/:id"  element={<DetailDeliveryView />}/>
+        <Route path="/"             element={<MainDeliveryView data={dataApp}/>}/>
+        <Route path="/shipment/:id"  element={<DetailDeliveryView />}/>
         <Route path="*" element={
             <main style={{ padding: "1rem" }}>
               <p>There's nothing here!</p>
@@ -45,7 +45,7 @@ const App = () => {
           }
         />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
