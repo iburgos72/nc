@@ -9,8 +9,6 @@ import './styles/modal.scss';
 
 const Modal = (props) => {
   return props.show ?
-    null
-    :
     (
       <div className="modal">
         <div className="modal-main padding-30">
@@ -24,7 +22,9 @@ const Modal = (props) => {
           {props.children}
         </div>
       </div>
-    );
+    )
+    :
+    null;
 };
 
 export default Modal;

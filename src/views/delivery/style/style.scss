@@ -1,0 +1,33 @@
+@import '../../../general_components/styles/colors.scss';
+
+.font-logo {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.font-user {
+  font-size: 14px;
+}
+
+.cell {
+  padding: 20px;
+  font-size: 14px;
+  .header {
+    color: var(--main-gray);
+  font-size: 12px;
+  }
+}
+
+.input-description {
+  color: var(--dark-gray);
+  font-size: 14px;
+}
+
+.input-error{
+  color: var(--main-red);
+  font-size: 14px;
+}
+
+.form-description {
+  font-size: 14px;
+}
