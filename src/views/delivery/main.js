@@ -12,6 +12,8 @@ import Form from './Components/Form'
 import userIcon from 'Images/user-icon.png'
 import infoDetail from 'Images/info.png'
 
+// helpers
+import { readOrCreateDataInLocalstorage } from "Helpers/helpers.js"
 
 // style
 import './style/style.scss';
@@ -21,8 +23,8 @@ const Main = (props) => {
   const [data, setData] = useState(props.data)
 
   useEffect(() => {
-    setData(props.data)
-  }, [props.data])
+    readOrCreateDataInLocalstorage(props.nameData, setData, props.defaultData)
+  }, [])
 
   const buildBody = () => {
     if (data == null) {
@@ -96,7 +98,7 @@ const Main = (props) => {
       ...data,
     ]
     setData(newData);
-      localStorage.setItem('NuvoCargoData', JSON.stringify(newData))
+    localStorage.setItem(props.nameData, JSON.stringify(newData))
   }
 
   return (
