@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 // components
 import Title from 'GeneralComponents/Title';
+import SelectInput from 'GeneralComponents/SelectInput';
 
 const Form = (props) => {
   const platforms = ["Alpha", "Beta", "Gamma"]
@@ -30,20 +31,6 @@ const Form = (props) => {
       setErrTechnician("Empty value")
     } else {
       setErrTechnician("")
-    }
-
-    if (platform === "") {
-      errors = true;
-      setErrPlatform("Select a platform")
-    } else {
-      setErrPlatform("")
-    }
-
-    if (drone === "") {
-      errors = true;
-      setErrDrone("Select a drone")
-    } else {
-      setErrDrone("")
     }
 
     if(errors) return;
@@ -99,40 +86,18 @@ const Form = (props) => {
           </div>
         </div>
         <div className="flex row justify-content-around">
-          <div className="flex column margin-vertical-10">
-            <div className="flex row justify-content-between">
-              <span className="input-description">
-                Platform
-              </span>
-            </div>
-            <select
-              name="platform"
-              onChange={(e) => setPlatform(e.target.value)}
-            >
-              {
-                platforms.map(el => (
-                  <option value={el}>{el}</option>
-                ))
-              }
-            </select>
-          </div>
-          <div className="flex column margin-vertical-10">
-            <div className="flex row justify-content-between">
-              <span className="input-description">
-                Drone
-              </span>
-            </div>
-            <select
-              name="drone"
-              onChange={(e) => setDrone(e.target.value)}
-            >
-              {
-                drones.map(el => (
-                  <option value={el}>{el}</option>
-                ))
-              }
-            </select>
-          </div>
+          <SelectInput
+            name={"platform"}
+            label={"Platform"}
+            stateFunction={setPlatform}
+            options={platforms}
+          />
+          <SelectInput
+            name={"drone"}
+            label={"Drone"}
+            stateFunction={setDrone}
+            options={drones}
+          />
         </div>
       </div>
       <div className="flex row justify-content-end">

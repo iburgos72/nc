@@ -18,25 +18,27 @@ import 'GeneralComponents/styles/general.scss'
 import 'GeneralComponents/styles/button-input.scss'
 
 // helpers
-import { dummyData } from "Helpers/helpers.js"
+import {
+  droneData,
+  dummyData,
+} from "Helpers/helpers.js"
+
+// Constants
+const NUVOCARGO = 'NuvoCargoData'
+const DRONE = 'DroneData'
 
 const App = () => {
-  const [dataApp, setDataApp] = useState(null);
-
-  useEffect(() => {
-    const data = localStorage.getItem('NuvoCargoData')
-    if (data === null) {
-      setDataApp(dummyData)
-      localStorage.setItem('NuvoCargoData', JSON.stringify(dummyData))
-    } else {
-      setDataApp(JSON.parse(data))
-    }
-  }, [])
-
   return (
     <HashRouter basename="/">
       <Routes>
-        <Route path="/"             element={<MainDeliveryView data={dataApp}/>}/>
+        <Route
+          path="/"
+          element={<MainDeliveryView nameData={NUVOCARGO} defaultData={dummyData}/>}
+        />
+        <Route
+          path="/drone"
+          element={<MainDeliveryView nameData={DRONE} defaultData={droneData}/>}
+        />
         <Route path="/shipment/:id"  element={<DetailDeliveryView />}/>
         <Route path="*" element={
             <main style={{ padding: "1rem" }}>
